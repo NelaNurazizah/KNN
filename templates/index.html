@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediksi Depresi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef6f9;
+            padding: 40px;
+        }
+        form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label, select {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        input[type=submit] {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007acc;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="/predict" method="POST">
+        <h2>Form Gejala Depresi</h2>
+        {% for feature in ["Sleep", "Appetite", "Interest", "Fatigue", "Worthlessness", 
+                           "Concentration", "Agitation", "Suicidal_Ideation", 
+                           "Sleep_Disturbance", "Aggression", "Panic_Attacks", 
+                           "Hopelessness", "Restlessness", "Low_Energy"] %}
+            <label for="{{ feature }}">{{ feature.replace("_", " ") }}</label>
+            <select name="{{ feature }}" required>
+                {% for i in range(1, 7) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+        <input type="submit" value="Prediksi Sekarang">
+    </form>
+</body>
+</html>

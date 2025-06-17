@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Prediksi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2fbff;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #007acc;
+        }
+        img {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: white;
+            background-color: #007acc;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Hasil Prediksi Depresi:</h2>
+        <h3>{{ prediction }}</h3>
+        <img src="{{ url_for('static', filename=image_path) }}" alt="KNN Scatterplot">
+        <br>
+        <a href="/">Kembali ke Form</a>
+    </div>
+</body>
+</html>
